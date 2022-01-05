@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style src="style.css"></style>
-    <title>A hackers dream</title>
+    <title>"perfect art" tool</title>
 </head>
+
 <body>
-    <input id="hax" placeholder="enter your hax here">
-    <span id="money" class="dataShow">apollo 13</span>
+    <canvas onclick="addtext(event)" style="margin-top: 0px; margin-left: 0px; padding: 0px; background-image: repeating-linear-gradient(45deg, lightgreen, lime, yellow, orange, red, purple);" id="canv" width="width" height="height"></canvas>
+    <script>
+        width = screen.availWidth
+        height = screen.availHeight
+        document.getElementById("canv").setAttribute("width", String(width))
+        document.getElementById("canv").setAttribute("height", String(height))
+
+        can = document.getElementById("canv")
+        ctx = can.getContext("2d")
+
+        ctx.fillStyle = "black"
+
+        function addtext(event) {
+            var x = event.clientX
+            var y = event.clientY
+            ctx.fillStyle = "#" + String(Math.floor(Math.random() * 999999))
+            ctx.fillText("perfect art", x - 25, y - 10, 100, 20)
+        }
+        can.addEventListener("click", addtext(event))
+        while (true) {
+            document.body.getElementById("canv")
+        }
+    </script>
 </body>
+
 </html>
