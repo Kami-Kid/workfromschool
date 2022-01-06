@@ -11,7 +11,7 @@
 <body>
     <canvas onclick="addtext(event)" onmousemove="if(continuous){addtext(event)}" style="margin-top: 0px; margin-left: 0px; padding: 0px; background-image: repeating-linear-gradient(45deg, lightgreen, lime, yellow, orange, red, purple);" id="canv" width="width"
         height="height"></canvas>
-    <button onclick="continuous = true"> make a continuous art supply</button>
+    <button onclick="if(continuous){continuous = false}else{continuous = true}">infinite art supply</button>
 
     <script>
         var continuous = false
