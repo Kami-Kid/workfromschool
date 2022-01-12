@@ -9,11 +9,12 @@
 </head>
 
 <body>
-    <canvas onclick="addtext(event)" onmousemove="if(continuous){addtext(event)}" style="margin-top: 0px; margin-left: 0px; padding: 0px; background-image: repeating-linear-gradient(45deg, lightgreen, lime, yellow, orange, red, purple);" id="canv" width="width"
-        height="height"></canvas>
+    <canvas onmousedown="addtext(event); startcont = true" onmouseup="startcont = false" style="margin-top: 0px; margin-left: 0px; padding: 0px; background-image: repeating-linear-gradient(45deg, lightgreen, lime, yellow, orange, red, purple);" id="canv"
+        width="width" height="height"></canvas>
     <button onclick="if(continuous){continuous = false}else{continuous = true}">infinite art supply (click to toggle)</button>
 
     <script>
+        var startcont = false
         var continuous = false
         var x = 0
         var y = 0
@@ -34,6 +35,16 @@
             x = event.pageX
             ctx.fillStyle = "#" + String(Math.floor(Math.random() * 999999))
             ctx.fillText("perfect art", x - 25, y - 10, 100, 20)
+        }
+
+        addEventListener("mousemove", function(e) {
+            if (continuous && startcont) {
+                addtext(e)
+            }
+        })
+
+        while (startcont && continuous) {
+            addtext(MouseEvent)
         }
 
         //function findpos(mouseEvent) {
